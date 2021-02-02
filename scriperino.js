@@ -23,7 +23,7 @@ const dotenv = require('dotenv/config');
   });
   
   console.log(result[2][1]+ ' - ' + result[2][8]);
-  
+  console.log(JSON.stringify(result)); 
   //result.forEach(rowline => rowline[7]=='' && rowline[8]=='' ? console.log("hi"): console.log('ok'));
   await page.screenshot({path: 'example3.png'});
   
