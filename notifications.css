@@ -1,0 +1,27 @@
+body{
+    background: gray;
+}
+
+.glass-board{
+    background: white;
+    min-height: 60vh;
+    width: 60%;
+    background: linear-gradient(
+        to left top,
+        rgba(255,255,255,9.7),
+        rgba(255,255,255,0.3)
+    );
+    border-radius: 2rem;
+}
+
+.card-notification{
+    display: flex;
+    background: linear-gradient(
+        to left top,
+        rgba(255,255,255,1),
+        rgba(255,255,255,0.8)
+    );
+    border-radius: 1rem;
+    margin: 2rem 0rem;
+    padding: 2rem;
+}
