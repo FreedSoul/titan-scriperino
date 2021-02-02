@@ -12,7 +12,7 @@ body{
         rgba(255,255,255,0.3)
     );
     border-radius: 2rem;
-    backdrop-filter: blur(0.4rem);
+    backdrop-filter: blur(0.5rem);
     z-index: -1;
 }
 
@@ -29,8 +29,7 @@ body{
 }
 
 .move{
-    position: absolute;
-    top: 50%;
+    top: 70%;
     left: 20%;
     background: rgb(160, 182, 34);
 }
