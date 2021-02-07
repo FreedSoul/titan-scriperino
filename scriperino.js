@@ -1,14 +1,13 @@
 const puppeteer = require('puppeteer');
 const dotenv = require('dotenv/config'); 
+const fs = require('fs');
 
 
 (async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto('https://realtimefreight.com/login/')
+  await page.goto('https://carrier.realtimefreight.com/')
   await page.screenshot({path: 'example.png'});
-  await page.click('#mk-button-7');
-  await page.screenshot({path: 'example2.png'});
   await page.type('#txtUName', process.env.USNAME);
   await page.type('#txtPw', process.env.PASS);
   await page.click('#btnSubmit');
@@ -21,14 +20,33 @@ const dotenv = require('dotenv/config');
       return Array.from(columns, column => column.innerText);
     });
   });
-  
-  console.log(result[2][1]+ ' - ' + result[2][8]);
-  console.log(JSON.stringify(result)); 
-  //result.forEach(rowline => rowline[7]=='' && rowline[8]=='' ? console.log("hi"): console.log('ok'));
-  await page.screenshot({path: 'example3.png'});
-  
+
+  const output = fs.readFileSync('matching-table.txt', 'utf8')
+  const matchTable = output.trim('\r').split('\r\n').map(x => x)
+  console.log('*******tabla de matches********');
+  console.log(matchTable)
+  let listResult = []
+  for(let i=0; i < result.length; i++){
+    listResult.push(result[i][7]+' -- '+result[i][8]);
+  }
+  console.log('****juntando result en un solo array****');
+  console.log(listResult);
+  let matches = [];
+  for(let i=1; i < listResult.length; i++){
+    for(let j=1; j < matchTable.length; j++){
+      if(listResult[i].toLowerCase() == matchTable[j].toLowerCase()){
+        matches.push(i);
+      }
+    }
+  }
+  console.log('%%%%%%%%%%%%%%%%%');
+  for (let t = 0; t < matches.length; t++) {
+    console.log(result[matches[t]]);
+  }
+  //console.log(result)
   
   await page.goto('https://carrier.realtimefreight.com/Logout.aspx');
   
   await browser.close();
 })();
+
