@@ -13,7 +13,7 @@ const times = 0;
 // }, 2000)
 
 
-(async(times)=>{
+async function lookUp(times){
   //AUTOLOG A RTF
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
@@ -70,8 +70,10 @@ const times = 0;
   await page.goto('https://carrier.realtimefreight.com/Logout.aspx');
   times = times++;
   await browser.close();
+  setTimeout(lookUp,6000)
   return matches;
-})();
+};
 
+setTimeout(lookUp,6000)
 console.log(times);
 
