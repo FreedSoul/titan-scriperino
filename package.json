@@ -1,0 +1,27 @@
+{
+  "name": "titan-notificator",
+  "version": "0.1.0",
+  "description": "",
+  "main": "scriperino.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "http-server": "^0.12.3",
+    "puppeteer": "^5.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "go": "node --experimental-modules scriperino.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FreedSoul/titan-scriperino.git"
+  },
+  "author": "mattdev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FreedSoul/titan-scriperino/issues"
+  },
+  "homepage": "https://github.com/FreedSoul/titan-scriperino#readme",
+  "type": "module"
+}
