@@ -11,7 +11,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "go": "node --experimental-modules scriperino.js"
+    "go": "node --experimental-modules --unhandled-rejections=strict scriperino.js"
   },
   "repository": {
     "type": "git",

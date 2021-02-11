@@ -70,7 +70,8 @@ async function lookUp(times){
   await page.goto('https://carrier.realtimefreight.com/Logout.aspx');
   times = times++;
   await browser.close();
-  setTimeout(lookUp,6000)
+  setTimeout(lookUp,6000);
+  console.log('se supone que aqui no llego xD')
   return matches;
 };
 
